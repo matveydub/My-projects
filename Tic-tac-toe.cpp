@@ -1,43 +1,18 @@
 #include <iostream>
 
 using namespace std;
-
+char square1 = ' ', square2 = ' ', square3 = ' ', square4 = ' ', square5 = ' ', square6 = ' ', square7 = ' ', square8 = ' ', square9 = ' ';
+int j = 0;
+void buildArea();
 void main()
 {
 	int X, O;
 	bool gameOver = false;
-	char square1 = ' ', square2 = ' ', square3 = ' ', square4 = ' ', square5 = ' ', square6 = ' ', square7 = ' ', square8 = ' ', square9 = ' ';
-	int player_switch = 0, j = 0;
+	int player_switch = 0;
 	int current_array[10] = {}; //This array will be used to check which square is already filled.
 	while (!gameOver)
 	{
-		for (int i = 0; i < 3; i++)
-		{
-			cout << "-------------------------------";
-			cout << endl;
-			for (j = 0; j < 4; j++)
-			{
-				if (i == 0 && j == 2)
-				{
-					cout << "     " << square1 << "    |     " << square2 << "     |     " << square3 << "     |";
-					cout << endl;
-				}
-				if (i == 1 && j == 2)
-				{
-					cout << "     " << square4 << "    |     " << square5 << "     |     " << square6 << "     |";
-					cout << endl;
-				}
-				if (i == 2 && j == 2)
-				{
-					cout << "     " << square7 << "    |     " << square8 << "     |     " << square9 << "     |";
-					cout << endl;
-				}
-				cout << "          |           |           |";
-				cout << endl;
-			}
-		}
-		cout << "-------------------------------";
-		cout << endl;
+		buildArea();
 		if (player_switch % 2 == 0) 
 		{
 			cout << "Player 1 turn (1 - 9): ";
@@ -147,66 +122,44 @@ void main()
 		if (square1 == 'X' && square2 == 'X' && square3 == 'X' || square1 == 'X' && square4 == 'X' && square7 == 'X' || square3 == 'X' && square6 == 'X' && square9 == 'X' || square1 == 'X' && square5 == 'X' && square9 == 'X' || square3 == 'X' && square5 == 'X' && square7 == 'X' || square4 == 'X' && square5 == 'X' && square6 == 'X' || square7 == 'X' && square8 == 'X' && square9 == 'X' || square2 == 'X' && square5 == 'X' && square8 == 'X')
 		{
 			gameOver = true;
-			for (int i = 0; i < 3; i++)
-			{
-				cout << "-------------------------------";
-				cout << endl;
-				for (j = 0; j < 4; j++)
-				{
-					if (i == 0 && j == 2)
-					{
-						cout << "     " << square1 << "    |     " << square2 << "     |     " << square3 << "     |";
-						cout << endl;
-					}
-					if (i == 1 && j == 2)
-					{
-						cout << "     " << square4 << "    |     " << square5 << "     |     " << square6 << "     |";
-						cout << endl;
-					}
-					if (i == 2 && j == 2)
-					{
-						cout << "     " << square7 << "    |     " << square8 << "     |     " << square9 << "     |";
-						cout << endl;
-					}
-					cout << "          |           |           |";
-					cout << endl;
-				}
-			}
-			cout << "-------------------------------";
-			cout << endl;
+			buildArea();
 			cout << "Game Over! Player 1 won!";
 		}
 		else if (square1 == 'O' && square2 == 'O' && square3 == 'O' || square1 == 'O' && square4 == 'O' && square7 == 'O' || square3 == 'O' && square6 == 'O' && square9 == 'O' || square1 == 'O' && square5 == 'O' && square9 == 'O' || square3 == 'O' && square5 == 'O' && square7 == 'O' || square4 == 'O' && square5 == 'O' && square6 == 'O' || square7 == 'O' && square8 == 'O' && square9 == 'O' || square2 == 'O' && square5 == 'O' && square8 == 'O')
 		{
 			gameOver = true;
-			for (int i = 0; i < 3; i++)
-			{
-				cout << "-------------------------------";
-				cout << endl;
-				for (j = 0; j < 4; j++)
-				{
-					if (i == 0 && j == 2)
-					{
-						cout << "     " << square1 << "    |     " << square2 << "     |     " << square3 << "     |";
-						cout << endl;
-					}
-					if (i == 1 && j == 2)
-					{
-						cout << "     " << square4 << "    |     " << square5 << "     |     " << square6 << "     |";
-						cout << endl;
-					}
-					if (i == 2 && j == 2)
-					{
-						cout << "     " << square7 << "    |     " << square8 << "     |     " << square9 << "     |";
-						cout << endl;
-					}
-					cout << "          |           |           |";
-					cout << endl;
-				}
-			}
-			cout << "-------------------------------";
-			cout << endl;
+			buildArea();
 			cout << "Game Over! Player 2 won!";
 		}
 	}
+}
+void buildArea()
+{
+	for (int i = 0; i < 3; i++)
+	{
+		cout << "-----------------------------------";
+		cout << endl;
+		for (j = 0; j < 4; j++)
+		{
+			if (i == 0 && j == 2)
+			{
+				cout << "     " << square7 << "    |     " << square8 << "     |     " << square9 << "     |";
+				cout << endl;
+			}
+			if (i == 1 && j == 2)
+			{
+				cout << "     " << square4 << "    |     " << square5 << "     |     " << square6 << "     |";
+				cout << endl;
+			}
+			if (i == 2 && j == 2)
+			{
+				cout << "     " << square1 << "    |     " << square2 << "     |     " << square3 << "     |";
+				cout << endl;
+			}
+			cout << "          |           |           |";
+			cout << endl;
+		}
+	}
+	cout << "-----------------------------------";
+	cout << endl;
 }
